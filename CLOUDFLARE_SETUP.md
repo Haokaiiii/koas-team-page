@@ -18,9 +18,13 @@
    - **Build output directory**: `./` (根目录)
    - **Root directory**: `/` (留空)
 
-   **重要**: 如果仍然显示"Hello World"，请尝试：
-   - 将 **Build output directory** 设置为留空 (而不是 `./`)
-   - 或设置为 `/` (单斜杠)
+   **重要**: 如果仍然显示"Hello World"，请检查并修改以下设置：
+
+   1. **Build output directory**: 留空 (删除 `./`)
+   2. **Version command**: 删除 `npx wrangler versions upload` (留空)
+   3. **Deploy command**: 确保留空 (不要有任何Wrangler命令)
+
+   **关键**: "Version command" 和 "Deploy command" 都必须留空！
 
 ### 2. 创建API Token
 1. 在左侧菜单中点击 **"API Tokens"**
