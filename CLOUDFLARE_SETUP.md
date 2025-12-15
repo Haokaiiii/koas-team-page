@@ -6,6 +6,18 @@
 1. 登录 [Cloudflare Dashboard](https://dash.cloudflare.com/)
 2. 点击右上角的头像 → **"My Profile"**
 
+### 1.5. 修改构建设置 (重要!)
+
+如果遇到Wrangler部署错误，请修改构建设置：
+
+1. 在Cloudflare Pages项目中，点击 **"Settings"** 标签
+2. 找到 **"Builds & deployments"** 部分
+3. 修改构建设置：
+   - **Build command**: `npm run build` (保持不变)
+   - **Deploy command**: (留空 - 删除 `npx wrangler deploy`)
+   - **Build output directory**: `./` (根目录)
+   - **Root directory**: `/` (留空)
+
 ### 2. 创建API Token
 1. 在左侧菜单中点击 **"API Tokens"**
 2. 点击 **"Create Token"**
