@@ -1,0 +1,8 @@
+{
+  "name": "koas-team-page",
+  "version": "1.0.0",
+  "description": "KOAS Agency team information page - static deployment",
+  "scripts": {
+    "build": "echo 'No build step needed for static HTML'"
+  }
+}
