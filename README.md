@@ -1,10 +1,10 @@
 # KOAS Agency - Team Information Page
 
-A modern, responsive team information website deployed on Cloudflare Pages + Workers.
+A modern, responsive team information website deployed on Cloudflare Pages.
 
 ## 🌐 Live Demo
 
-Visit: [https://koas.yourdomain.com](https://koas.yourdomain.com) (after deployment)
+Visit: [https://koas-team-page.pages.dev](https://koas-team-page.pages.dev) (after deployment)
 
 ## ✨ Features
 
@@ -13,6 +13,7 @@ Visit: [https://koas.yourdomain.com](https://koas.yourdomain.com) (after deploym
 - **Fast**: Deployed on Cloudflare's global CDN
 - **Static**: No server maintenance required
 - **SEO Friendly**: Proper HTML structure and meta tags
+- **Interactive**: Click cards to expand member details
 
 ## 🚀 Quick Deploy to Cloudflare Pages
 
@@ -27,88 +28,66 @@ Visit: [https://koas.yourdomain.com](https://koas.yourdomain.com) (after deploym
 2. **Create a Cloudflare Pages project**:
    - Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
    - Navigate to **Pages** → **Create a project**
-   - Connect your forked GitHub repository
+   - Connect your GitHub repository: `Haokaiiii/koas-team-page`
    - Configure build settings:
-     - **Build command**: `npm run build`
-     - **Build output directory**: `dist`
+     - **Build command**: (leave empty - no build needed)
+     - **Build output directory**: `./`
      - **Root directory**: `/` (leave empty)
 
 3. **Set up custom domain** (optional):
    - In Cloudflare Pages, go to **Custom domains**
-   - Add your domain (e.g., `koas.yourdomain.com`)
+   - Add your domain (e.g., `koas.haokaiii.com`)
    - Update your DNS records as instructed
 
 4. **Deploy**:
    - Push changes to your repository
-   - Cloudflare will automatically build and deploy
+   - Cloudflare will automatically deploy
 
 ## 🛠️ Local Development
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/koas-agency.git
-cd koas-agency
+git clone https://github.com/Haokaiiii/koas-team-page.git
+cd koas-team-page
 
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
+# Open in browser
+open index.html
 ```
+
+No build process needed! Just open `index.html` in your browser.
 
 ## 📁 Project Structure
 
 ```
-koas-agency/
-├── src/
-│   └── index.js          # Cloudflare Worker code
-├── css/
-│   ├── main.css          # Main styles
-│   └── components.css    # Component styles
-├── js/
-│   └── main.js           # Client-side JavaScript
+koas-team-page/
+├── index.html           # Main team page (self-contained)
+├── story.html           # Story page
+├── upload.html          # Upload page (placeholder)
+├── admin/
+│   └── login.html       # Admin login (placeholder)
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml    # GitHub Actions workflow
-├── wrangler.toml         # Cloudflare Workers config
-├── package.json          # Node.js dependencies
-└── README.md            # This file
+│       └── deploy.yml   # GitHub Actions deployment
+├── CLOUDFLARE_SETUP.md  # Setup instructions
+├── DEPLOY.md           # Deployment guide
+└── README.md           # This file
 ```
 
 ## 🎨 Customization
 
 ### Team Information
-Edit the team data in `src/index.js` in the static HTML responses.
+Edit the HTML content in `index.html` to update team member information.
 
 ### Styling
-- **Colors**: Modify CSS custom properties in `css/main.css`
-- **Layout**: Adjust grid layouts and spacing
-- **Animations**: Customize GSAP animations in `js/main.js`
+All CSS is embedded in `index.html`. Modify the `<style>` section to change:
+- **Colors**: CSS custom properties (`--primary-color`, `--secondary-color`)
+- **Layout**: Grid layouts and spacing
+- **Animations**: GSAP animations in the JavaScript section
 
 ### Adding Team Members
-1. Find the relevant department section in `src/index.js`
+1. Find the relevant department section in `index.html`
 2. Copy an existing member card HTML
-3. Update the information and image URL
-
-## 🔧 Advanced Features
-
-### Adding Dynamic Content
-If you need dynamic features like photo uploads:
-
-1. **Use Cloudflare Workers + KV** for data storage
-2. **Use Cloudflare R2** for file storage
-3. **Add API routes** in `src/index.js`
-
-### Custom Domain Setup
-1. Add your domain in Cloudflare Pages
-2. Update DNS records:
-   ```
-   CNAME koas yourdomain.com.pages.dev
-   ```
-3. Enable SSL in Cloudflare
+3. Update the information and image placeholder
 
 ## 📊 Performance
 
@@ -116,13 +95,14 @@ If you need dynamic features like photo uploads:
 - **First Contentful Paint**: <1s
 - **Time to Interactive**: <2s
 - **Global CDN**: Served from 200+ locations
+- **Zero Dependencies**: No npm packages needed
 
 ## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test locally
+4. Test locally (open `index.html`)
 5. Submit a pull request
 
 ## 📄 License
@@ -135,7 +115,8 @@ If you encounter issues:
 1. Check the [Cloudflare Pages documentation](https://developers.cloudflare.com/pages/)
 2. Review the browser console for errors
 3. Ensure your DNS is properly configured
+4. Check CLOUDFLARE_SETUP.md for detailed instructions
 
 ---
 
-Built with ❤️ for KOAS Agency
+Built with ❤️ for KOAS Agency using pure HTML, CSS, and JavaScript
