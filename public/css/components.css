@@ -1,0 +1,483 @@
+/* Components CSS - Reusable UI Components */
+
+/* Header */
+.header {
+    background: var(--gradient-pink);
+    padding: 5rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.4;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+}
+
+.header-nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logo-container {
+    margin-bottom: 0;
+}
+
+.company-logo {
+    height: 80px;
+    width: auto;
+    max-width: 300px;
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.company-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4));
+}
+
+.agency-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.agency-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+/* Upload Link in Header */
+.upload-link-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.upload-link-header:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Admin Login Button */
+.admin-login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.admin-login-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 4rem;
+}
+
+/* Org Chart */
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.department {
+    background: rgba(15, 15, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    animation: fadeInUp 0.6s ease-out;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+}
+
+.department:nth-child(1) { animation-delay: 0.1s; }
+.department:nth-child(2) { animation-delay: 0.2s; }
+.department:nth-child(3) { animation-delay: 0.3s; }
+.department:nth-child(4) { animation-delay: 0.4s; }
+.department:nth-child(5) { animation-delay: 0.5s; }
+.department:nth-child(6) { animation-delay: 0.6s; }
+
+.department:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(233, 30, 99, 0.15);
+    border-color: rgba(233, 30, 99, 0.3);
+}
+
+.department-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.department-icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.department-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Team Grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.executives {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.team-member {
+    position: relative;
+}
+
+.member-card {
+    background: rgba(15, 15, 15, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 1.75rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-pink);
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(233, 30, 99, 0.3);
+    box-shadow: 0 12px 32px rgba(233, 30, 99, 0.15);
+}
+
+.member-card:hover::before {
+    transform: scaleX(1);
+}
+
+.member-photo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--border-color);
+    background: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* GSAP handles scale transform, CSS handles border/shadow for smooth transitions */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-photo.is-hovered {
+    border-color: #e91e63;
+    box-shadow: 0 12px 28px rgba(233, 30, 99, 0.35);
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    loading: lazy;
+    /* Removed will-change - GSAP handles this better */
+}
+
+.photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-pink);
+    color: var(--text-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.member-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+.member-role {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+.member-role-sub {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+    margin-top: 0.25rem;
+    text-align: center;
+}
+
+.member-tenure {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    margin-top: 0.5rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Member Summary (Sticky Note Style) */
+.member-summary {
+    margin-top: 1rem;
+    padding-top: 0;
+    border-top: 1px solid transparent;
+    overflow: hidden;
+    /* Removed max-height transition - GSAP will handle smooth height animation */
+}
+
+.member-summary.expanded {
+    padding-top: 1rem;
+    border-top-color: var(--border-color);
+}
+
+.summary-header {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-pink);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.5rem 0;
+    width: 100%;
+    pointer-events: auto;
+    /* Removed hover color change - no hover effects */
+}
+
+.summary-header::after {
+    content: '▼';
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+}
+
+.member-summary.expanded .summary-header::after {
+    transform: rotate(180deg);
+}
+
+.summary-content {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.summary-content p {
+    margin-bottom: 0.75rem;
+    text-align: left;
+}
+
+.summary-content p:last-child {
+    margin-bottom: 0;
+}
+
+.summary-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Alumni Members */
+.alumni-member .member-card {
+    opacity: 0.7;
+    border-style: dashed;
+}
+
+.alumni-member .member-card:hover {
+    opacity: 0.9;
+}
+
+.alumni-member .member-photo {
+    opacity: 0.8;
+}
+
+.alumni-member .member-photo .photo-placeholder {
+    opacity: 0.6;
+}
+
+.alumni .department-header {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .upload-link-header {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .agency-title {
+        font-size: 2.5rem;
+    }
+
+    .agency-subtitle {
+        font-size: 1rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .executives {
+        grid-template-columns: 1fr;
+    }
+
+    .department {
+        padding: 1.5rem;
+    }
+
+    .member-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .photo-placeholder {
+        font-size: 2rem;
+    }
+
+    .company-logo {
+        height: 60px;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .agency-title {
+        font-size: 2rem;
+    }
+
+    .department-title {
+        font-size: 1.25rem;
+    }
+}
+

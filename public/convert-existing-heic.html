@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Existing HEIC Files</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .container {
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        h1 {
+            color: #6366f1;
+        }
+        .file-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #1a1a1a;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #7c3aed;
+        }
+        button:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-left: 15px;
+            font-size: 0.9em;
+        }
+        .success { color: #22c55e; }
+        .error { color: #ef4444; }
+        .info { color: #3b82f6; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Convert Existing HEIC Files to JPG</h1>
+        <p>This tool will convert HEIC files in the photos folder to JPG format so they display properly in browsers.</p>
+        
+        <div id="fileList"></div>
+        
+        <div style="margin-top: 20px;">
+            <button id="convertAll" onclick="convertAll()">Convert All HEIC Files</button>
+        </div>
+    </div>
+
+    <script>
+        const heicFiles = [
+            { name: 'JACK G.HEIC', path: 'Pics/PFP TEAM KOAS - 2025 (nov.)/JACK G.HEIC' },
+            { name: 'Alex.HEIC', path: 'Pics/PFP TEAM KOAS - 2025 (nov.)/Alex.HEIC' },
+            { name: 'Ain Kyell.HEIC', path: 'Pics/PFP TEAM KOAS - 2025 (nov.)/Ain Kyell.HEIC' }
+        ];
+
+        function createFileItem(file) {
+            const div = document.createElement('div');
+            div.className = 'file-item';
+            div.id = `file-${file.name}`;
+            div.innerHTML = `
+                <span>${file.name}</span>
+                <div>
+                    <button onclick="convertFile('${file.name}', '${file.path}')">Convert</button>
+                    <span class="status" id="status-${file.name}"></span>
+                </div>
+            `;
+            return div;
+        }
+
+        function updateStatus(fileName, message, type) {
+            const statusEl = document.getElementById(`status-${fileName}`);
+            statusEl.textContent = message;
+            statusEl.className = `status ${type}`;
+        }
+
+        async function convertFile(fileName, filePath) {
+            updateStatus(fileName, 'Loading...', 'info');
+            
+            try {
+                // Fetch the HEIC file
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error('File not found');
+                }
+                
+                const blob = await response.blob();
+                updateStatus(fileName, 'Converting...', 'info');
+                
+                // Convert HEIC to JPG
+                const convertedBlob = await heic2any({
+                    blob: blob,
+                    toType: 'image/jpeg',
+                    quality: 0.92
+                });
+                
+                const jpgBlob = Array.isArray(convertedBlob) ? convertedBlob[0] : convertedBlob;
+                const jpgFileName = fileName.replace(/\.heic?$/i, '.jpg');
+                
+                // Download the converted file
+                const url = URL.createObjectURL(jpgBlob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = jpgFileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                updateStatus(fileName, `✓ Converted! Download: ${jpgFileName}`, 'success');
+            } catch (error) {
+                console.error('Conversion error:', error);
+                updateStatus(fileName, '✗ Error: ' + error.message, 'error');
+            }
+        }
+
+        async function convertAll() {
+            const btn = document.getElementById('convertAll');
+            btn.disabled = true;
+            btn.textContent = 'Converting...';
+            
+            for (const file of heicFiles) {
+                await convertFile(file.name, file.path);
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Delay between conversions
+            }
+            
+            btn.disabled = false;
+            btn.textContent = 'Convert All HEIC Files';
+            alert('All conversions complete! Please save the downloaded JPG files to: Pics/PFP TEAM KOAS - 2025 (nov.)/');
+        }
+
+        // Initialize file list
+        window.onload = function() {
+            const fileList = document.getElementById('fileList');
+            heicFiles.forEach(file => {
+                fileList.appendChild(createFileItem(file));
+            });
+        };
+    </script>
+</body>
+</html>
+

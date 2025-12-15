@@ -1,0 +1,22 @@
+{
+  "name": "koas-agency-pages",
+  "version": "1.0.0",
+  "description": "KOAS Agency team information page deployed on Cloudflare Pages + Workers",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "start": "wrangler dev"
+  },
+  "keywords": ["cloudflare", "pages", "workers", "koas"],
+  "author": "KOAS Agency",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0",
+    "@cloudflare/workers-types": "^4.0.0"
+  },
+  "dependencies": {
+    "itty-router": "^4.0.0"
+  }
+}

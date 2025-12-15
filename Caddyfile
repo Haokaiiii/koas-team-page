@@ -1,0 +1,113 @@
+# HTTP only configuration (disable auto HTTPS)
+{
+	auto_https off
+}
+
+# Main domain on port 80 (for Cloudflare)
+:80 {
+	encode zstd gzip
+
+	# Handle /koas path specifically
+	handle_path /koas/* {
+		# Remove /koas prefix from the path
+		uri strip_prefix /koas
+
+		# Match static assets for caching
+		@staticAssets {
+			path /css/* /js/* /Pics/* /favicon.ico /robots.txt /sitemap.xml
+		}
+
+		# Handle static assets
+		handle @staticAssets {
+			header Cache-Control "public, max-age=31536000"
+			root * /app/public
+			try_files {path} {path}/ /index.html
+		}
+
+		# Handle all other requests (API, HTML pages)
+		handle {
+			# Security headers for HTTP
+			header {
+				Referrer-Policy "strict-origin-when-cross-origin"
+				X-Content-Type-Options "nosniff"
+				X-Frame-Options "DENY"
+			}
+
+			# Proxy to Node.js app
+			reverse_proxy koas-web:3000
+		}
+	}
+
+	# Handle root path - redirect to portfolio or other content
+	handle {
+		# You can customize this to serve your main site
+		# For now, just return a simple response
+		respond "Welcome to haokaiii.com - Visit /koas for KOAS Agency" 200
+	}
+}
+
+# Direct access on port 1025 (fallback)
+:1025 {
+	encode zstd gzip
+
+	# Handle /koas path specifically
+	handle_path /koas/* {
+		# Remove /koas prefix from the path
+		uri strip_prefix /koas
+
+		# Match static assets for caching
+		@staticAssets {
+			path /css/* /js/* /Pics/* /favicon.ico /robots.txt /sitemap.xml
+		}
+
+		# Handle static assets
+		handle @staticAssets {
+			header Cache-Control "public, max-age=31536000"
+			root * /app/public
+			try_files {path} {path}/ /index.html
+		}
+
+		# Handle all other requests (API, HTML pages)
+		handle {
+			# Security headers for HTTP
+			header {
+				Referrer-Policy "strict-origin-when-cross-origin"
+				X-Content-Type-Options "nosniff"
+				X-Frame-Options "DENY"
+			}
+
+			# Proxy to Node.js app
+			reverse_proxy koas-web:3000
+		}
+	}
+
+	# Handle root path (original behavior)
+	handle {
+		# Match static assets for caching
+		@staticAssets {
+			path /css/* /js/* /Pics/* /favicon.ico /robots.txt /sitemap.xml
+		}
+
+		# Handle static assets
+		handle @staticAssets {
+			header Cache-Control "public, max-age=31536000"
+			root * /app/public
+			try_files {path} {path}/ /index.html
+		}
+
+		# Handle all other requests (API, HTML pages)
+		handle {
+			# Security headers for HTTP
+			header {
+				Referrer-Policy "strict-origin-when-cross-origin"
+				X-Content-Type-Options "nosniff"
+				X-Frame-Options "DENY"
+			}
+
+			# Proxy to Node.js app
+			reverse_proxy koas-web:3000
+		}
+	}
+}
+
+
