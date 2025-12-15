@@ -17,6 +17,9 @@ pages_build_output_dir = "dist"
 [vars]
 NODE_ENV = "production"
 
+# Account ID from Cloudflare
+account_id = "4a467bc1ec3d9876b24c9d5b4e5049a0"
+
 # KV namespace for storing uploaded images (optional)
 # [[kv_namespaces]]
 # binding = "IMAGES"

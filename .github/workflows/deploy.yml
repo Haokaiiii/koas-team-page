@@ -33,8 +33,8 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: koas-agency
-          directory: ./dist
+          accountId: 4a467bc1ec3d9876b24c9d5b4e5049a0
+          projectName: koas-team-page
+          directory: ./
           # Optional: Auto-create deployment previews for PRs
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
