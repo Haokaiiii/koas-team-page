@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   deploy:
@@ -18,17 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -36,5 +23,4 @@ jobs:
           accountId: 4a467bc1ec3d9876b24c9d5b4e5049a0
           projectName: koas-team-page
           directory: ./
-          # Optional: Auto-create deployment previews for PRs
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

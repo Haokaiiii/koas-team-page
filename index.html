@@ -4,12 +4,345 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOAS Agency - Our Core Team & Structure</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/components.css">
+    <style>
+/* KOAS Agency - Main Styles */
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #4ecdc4;
+  --dark-bg: #1a1a1a;
+  --darker-bg: #0f0f0f;
+  --light-bg: #f8f9fa;
+  --text-color: #ffffff;
+  --text-muted: #b0b0b0;
+  --border-color: #333;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-content {
+  padding: 20px 0;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 40px;
+  width: auto;
+}
+
+.header-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.header-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.upload-link-header {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.admin-login-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.agency-subtitle {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Main Content */
+.main-content {
+  margin-top: 120px;
+  padding: 40px 0;
+}
+
+.page-title-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.story-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.story-link:hover {
+  color: var(--primary-color);
+}
+
+/* Organization Chart */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.department {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+}
+
+.department-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.department-icon {
+  font-size: 2rem;
+}
+
+.department-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.member-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: var(--secondary-color);
+}
+
+.member-photo {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.member-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--secondary-color);
+}
+
+.photo-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0 auto 20px;
+}
+
+.member-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.member-role {
+  color: var(--secondary-color);
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.member-subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.member-summary {
+  margin-top: 15px;
+}
+
+.member-about {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.about-label {
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.member-about p {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.member-about strong {
+  color: var(--primary-color);
+}
+
+/* Alumni cards */
+.member-card.alumni {
+  opacity: 0.7;
+  border-color: var(--text-muted);
+}
+
+.member-card.alumni .member-photo img {
+  border-color: var(--text-muted);
+}
+
+/* Footer */
+.footer {
+  margin-top: 80px;
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .header-nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .department {
+    padding: 25px;
+  }
+
+  .team-members {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .member-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-top: 140px;
+    padding: 20px 0;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .department {
+    padding: 20px;
+  }
+
+  .member-card {
+    padding: 15px;
+  }
+
+  .member-photo img,
+  .photo-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+}
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -323,6 +656,237 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+// KOAS Agency - Main JavaScript
+
+// Initialize GSAP
+gsap.registerPlugin();
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('KOAS Agency - Team Page Loaded');
+
+    // Initialize animations
+    initAnimations();
+
+    // Initialize member cards
+    initMemberCards();
+
+    // Initialize responsive behavior
+    initResponsive();
+});
+
+// Animation initialization
+function initAnimations() {
+    // Animate header on load
+    gsap.from('.header-content', {
+        duration: 1,
+        y: -50,
+        opacity: 0,
+        ease: 'power3.out'
+    });
+
+    // Animate page title
+    gsap.from('.page-title-section', {
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        ease: 'power3.out',
+        delay: 0.3
+    });
+
+    // Animate department cards
+    gsap.from('.department', {
+        duration: 0.8,
+        y: 30,
+        opacity: 0,
+        ease: 'power3.out',
+        stagger: 0.2,
+        delay: 0.6
+    });
+
+    // Animate member cards within departments
+    gsap.from('.member-card', {
+        duration: 0.6,
+        scale: 0.8,
+        opacity: 0,
+        ease: 'back.out(1.7)',
+        stagger: 0.1,
+        delay: 1
+    });
+}
+
+// Member card interactions
+function initMemberCards() {
+    const memberCards = document.querySelectorAll('.member-card');
+
+    memberCards.forEach(card => {
+        // Hover effects
+        card.addEventListener('mouseenter', function() {
+            gsap.to(this, {
+                duration: 0.3,
+                y: -10,
+                boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4)'
+            });
+        });
+
+        card.addEventListener('mouseleave', function() {
+            gsap.to(this, {
+                duration: 0.3,
+                y: 0,
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)'
+            });
+        });
+
+        // Click to expand member details
+        card.addEventListener('click', function() {
+            const summary = this.querySelector('.member-summary');
+            if (summary) {
+                const isExpanded = summary.style.display !== 'none';
+
+                // Close all other expanded cards
+                document.querySelectorAll('.member-summary').forEach(s => {
+                    if (s !== summary) {
+                        gsap.to(s, { duration: 0.3, height: 0, opacity: 0, onComplete: () => s.style.display = 'none' });
+                    }
+                });
+
+                if (!isExpanded) {
+                    summary.style.display = 'block';
+                    gsap.fromTo(summary,
+                        { height: 0, opacity: 0 },
+                        { duration: 0.3, height: 'auto', opacity: 1, ease: 'power3.out' }
+                    );
+                } else {
+                    gsap.to(summary, {
+                        duration: 0.3,
+                        height: 0,
+                        opacity: 0,
+                        onComplete: () => summary.style.display = 'none'
+                    });
+                }
+            }
+        });
+    });
+}
+
+// Responsive behavior
+function initResponsive() {
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        // Reinitialize grid layouts if needed
+        updateGridLayout();
+    });
+
+    // Handle mobile menu
+    initMobileMenu();
+
+    // Handle scroll effects
+    initScrollEffects();
+}
+
+function updateGridLayout() {
+    const teamMembers = document.querySelectorAll('.team-members');
+
+    teamMembers.forEach(container => {
+        const cards = container.querySelectorAll('.member-card');
+
+        if (window.innerWidth < 768) {
+            // Mobile: single column
+            container.style.gridTemplateColumns = '1fr';
+        } else if (window.innerWidth < 1024) {
+            // Tablet: 2 columns
+            container.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        } else {
+            // Desktop: auto-fit
+            container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(280px, 1fr))';
+        }
+    });
+}
+
+function initMobileMenu() {
+    // Create mobile menu toggle if needed
+    const headerNav = document.querySelector('.header-nav');
+    const headerTop = document.querySelector('.header-top');
+
+    if (window.innerWidth < 768 && headerNav) {
+        // Add mobile menu button
+        const mobileToggle = document.createElement('button');
+        mobileToggle.className = 'mobile-menu-toggle';
+        mobileToggle.innerHTML = '☰';
+        mobileToggle.style.cssText = `
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        `;
+
+        headerTop.appendChild(mobileToggle);
+
+        // Toggle mobile menu
+        mobileToggle.addEventListener('click', function() {
+            headerNav.classList.toggle('mobile-open');
+            this.innerHTML = headerNav.classList.contains('mobile-open') ? '✕' : '☰';
+        });
+
+        // Show toggle button
+        mobileToggle.style.display = 'block';
+    }
+}
+
+function initScrollEffects() {
+    // Parallax effect for header
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const header = document.querySelector('.header');
+
+        if (header) {
+            header.style.transform = \`translateY(\${scrolled * 0.5}px)\`;
+            header.style.opacity = Math.max(0.8, 1 - scrolled / 500);
+        }
+    });
+}
+
+// Utility functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Error handling
+window.addEventListener('error', function(e) {
+    console.error('JavaScript error:', e.error);
+});
+
+// Performance monitoring
+function initPerformanceMonitoring() {
+    // Monitor page load time
+    window.addEventListener('load', function() {
+        const loadTime = performance.now();
+        console.log(\`Page loaded in \${loadTime.toFixed(2)}ms\`);
+    });
+}
+
+// Initialize performance monitoring
+initPerformanceMonitoring();
+
+// Export functions for potential use by other scripts
+window.KOAS = {
+    initAnimations,
+    initMemberCards,
+    initResponsive,
+    updateGridLayout
+};
+    </script>
 </body>
 </html>
