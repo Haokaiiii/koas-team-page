@@ -18,13 +18,25 @@
    - **Build output directory**: `./` (根目录)
    - **Root directory**: `/` (留空)
 
-   **重要**: 如果仍然显示"Hello World"，请检查并修改以下设置：
+   **重要**: 如果仍然显示"Hello World"，说明项目被识别为Worker而不是静态站点。请按以下步骤修复：
 
-   1. **Build output directory**: 留空 (删除 `./`)
-   2. **Version command**: 删除 `npx wrangler versions upload` (留空)
-   3. **Deploy command**: 确保留空 (不要有任何Wrangler命令)
+   ### 紧急修复步骤：
 
-   **关键**: "Version command" 和 "Deploy command" 都必须留空！
+   1. **删除work.js文件** (如果存在)
+   2. **修改构建设置**:
+      - Build command: `npm run build`
+      - Deploy command: 留空
+      - Version command: 留空
+      - Build output directory: 留空
+      - Root directory: `/`
+
+   3. **重新连接Git仓库**:
+      - 在Pages项目中，点击"Create a project"
+      - 选择"Connect to Git"
+      - 重新连接 `Haokaiiii/koas-team-page`
+      - 确保选择"None"作为框架预设
+
+   **关键**: 确保没有work.js文件，并且构建设置正确！
 
 ### 2. 创建API Token
 1. 在左侧菜单中点击 **"API Tokens"**
