@@ -18,6 +18,10 @@
    - **Build output directory**: `./` (根目录)
    - **Root directory**: `/` (留空)
 
+   **重要**: 如果仍然显示"Hello World"，请尝试：
+   - 将 **Build output directory** 设置为留空 (而不是 `./`)
+   - 或设置为 `/` (单斜杠)
+
 ### 2. 创建API Token
 1. 在左侧菜单中点击 **"API Tokens"**
 2. 点击 **"Create Token"**
