@@ -1,5 +1,18 @@
 # 🔑 Cloudflare Pages 设置指南
 
+## 🚨 重要提醒: Pages vs Workers
+
+如果你看到 **"Configure your Worker project"** 界面，说明你在错误的Cloudflare服务中！
+
+### 正确的服务选择:
+- ✅ **Cloudflare Pages**: 用于静态网站部署 (我们需要这个)
+- ❌ **Cloudflare Workers**: 用于代码运行环境
+
+### 切换到正确的服务:
+1. 访问: https://dash.cloudflare.com/pages/ (Pages服务)
+2. **不是**: https://dash.cloudflare.com/workers/ (Workers服务)
+3. 在Pages中创建项目
+
 ## 创建API Token
 
 ### 1. 访问Cloudflare Dashboard
