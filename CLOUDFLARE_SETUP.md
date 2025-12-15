@@ -51,6 +51,11 @@
 
    **关键**: 确保没有work.js文件，并且构建设置正确！
 
+   ### 文件大小限制提醒:
+   - Cloudflare Pages单个文件最大25MB
+   - 删除了27MB的图片文件
+   - 添加了.gitignore排除大文件
+
 ### 2. 创建API Token
 1. 在左侧菜单中点击 **"API Tokens"**
 2. 点击 **"Create Token"**
