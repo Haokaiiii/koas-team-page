@@ -182,7 +182,7 @@ body {
   position: relative;
   transition: all 0.3s ease;
   width: calc(100% - 120px); /* Use container width minus timeline area */
-  max-width: 500px; /* Prevent from becoming too wide */
+  max-width: 700px; /* Reasonable max width within container */
   min-width: 350px; /* Ensure minimum readable width */
   margin-left: 30px; /* Align with timeline line */
 }
@@ -314,8 +314,8 @@ body {
 /* Responsive Design */
 @media (max-width: 1200px) {
   .timeline-item {
-    width: calc((100vw - 200px) / 2);
-    max-width: 450px;
+    width: calc(100% - 100px);
+    max-width: 650px;
   }
 
   .timeline-image {
@@ -335,8 +335,8 @@ body {
   }
 
   .timeline-item {
-    width: calc((100vw - 160px) / 2);
-    max-width: 400px;
+    width: calc(100% - 80px); /* Account for reduced padding */
+    max-width: 600px;
     min-width: 300px;
     margin-left: 20px;
     padding: 30px;
@@ -384,8 +384,8 @@ body {
 
 @media (max-width: 900px) {
   .timeline-item {
-    width: calc(100vw - 140px);
-    max-width: 600px;
+    width: calc(100% - 60px);
+    max-width: 650px;
     min-width: 280px;
   }
 
@@ -452,7 +452,7 @@ body {
   }
 
   .timeline-item {
-    width: calc(100vw - 30px); /* Full width minus padding */
+    width: calc(100% - 30px); /* Full container width minus padding */
     max-width: none; /* Remove max-width on mobile */
     min-width: auto; /* Remove min-width on mobile */
     margin-left: 0;
