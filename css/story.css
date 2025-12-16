@@ -181,7 +181,7 @@ body {
   backdrop-filter: blur(10px);
   position: relative;
   transition: all 0.3s ease;
-  width: calc((100vw - 240px) / 2); /* Utilize available space minus timeline area */
+  width: calc(100% - 120px); /* Use container width minus timeline area */
   max-width: 500px; /* Prevent from becoming too wide */
   min-width: 350px; /* Ensure minimum readable width */
   margin-left: 30px; /* Align with timeline line */
@@ -385,7 +385,8 @@ body {
 @media (max-width: 900px) {
   .timeline-item {
     width: calc(100vw - 140px);
-    max-width: 650px;
+    max-width: 600px;
+    min-width: 280px;
   }
 
   .timeline-card {
