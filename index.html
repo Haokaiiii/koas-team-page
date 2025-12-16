@@ -754,9 +754,10 @@ function initMemberCards() {
 
                 if (!isExpanded) {
                     summary.style.display = 'block';
+                    const targetHeight = summary.scrollHeight;
                     gsap.fromTo(summary,
                         { height: 0, opacity: 0 },
-                        { duration: 0.3, height: 'auto', opacity: 1, ease: 'power3.out' }
+                        { duration: 0.3, height: targetHeight, opacity: 1, ease: 'power3.out' }
                     );
                 } else {
                     gsap.to(summary, {

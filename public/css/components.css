@@ -402,20 +402,20 @@
 }
 
 /* Alumni Members */
-.alumni-member .member-card {
+.alumni.member-card {
     opacity: 0.7;
     border-style: dashed;
 }
 
-.alumni-member .member-card:hover {
+.alumni.member-card:hover {
     opacity: 0.9;
 }
 
-.alumni-member .member-photo {
+.alumni .member-photo {
     opacity: 0.8;
 }
 
-.alumni-member .member-photo .photo-placeholder {
+.alumni .member-photo .photo-placeholder {
     opacity: 0.6;
 }
 
