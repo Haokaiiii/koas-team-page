@@ -1,4 +1,4 @@
-# Cloudflare Pages file size limits
+# Cloudflare Pages file size limits - exclude all large media files
 *.png
 *.jpg
 *.jpeg
@@ -7,11 +7,51 @@
 *.mov
 *.avi
 *.pdf
+*.heic
+*.heif
 
-# Keep small essential images
+# Keep only essential images used in story page
 !Pics/GRAPHIC ASSETS/koas-full-white.svg
-!Pics/PFP TEAM KOAS - 2025 (nov.)/*.jpg
-!Pics/PFP TEAM KOAS - 2025 (nov.)/*.png
+
+# Team photos used in story timeline
+!Pics/Team/2025_10_October_Rin_Birthday_Mortons.jpg
+!Pics/Team/2025_06_June_Marbella.jpg
+!Pics/Team/2025_05_May_UGT_Cooperation.jpg
+!Pics/Team/2025_05_May_Manila_Sales_Team_Mery.jpg
+!Pics/Team/2025_05_May_Dubai_Jacks_Birthday.jpg
+!Pics/Team/2024_06_June_European_Football_Cup_Cologne.jpg
+!Pics/Team/2024_05_May_01_Shanghai_Labor_Day.jpg
+!Pics/Team/2024_04_April_Bali_Team_Event.jpg
+!Pics/Team/2024_03-05_March-May_Taipei_Expansion.jpg
+!Pics/Team/2024_03-05_March-May_Taipei_Expansion_2.jpg
+!Pics/Team/2024_03_March_Kuala_Lumpur.jpg
+!Pics/Team/2024_02_February_Prague_JAMAL_Project.jpg
+!Pics/Team/2024_Taichung_Model_Meetup.jpg
+!Pics/Team/2024_Vietnam_Chinese_Studies_Graduation_Soochow_University.jpg
+!Pics/Team/2024_Greater_Bay_Area_Guangzhou.jpg
+!Pics/Team/2024_Greater_Bay_Area_Shenzhen.jpg
+!Pics/Team/2024_Greater_Bay_Area_Hong_Kong.jpg
+!Pics/Team/2024_Club_Acquisition.jpg
+!Pics/Team/2023_12_December_Shanghai_Steps_Challenge_David.jpg
+!Pics/Team/2023/2023_First_3_Models_Signed_0009.jpg
+!Pics/Team/2023/2023_First_3_Models_Signed_0010.jpg
+!Pics/Team/2023/2023_First_3_Models_Signed_0011.jpg
+!Pics/Team/2023/2023_First_3_Models_Signed_0012.jpg
+!Pics/Team/2023/2023_First_3_Models_Signed_0013.jpg
+!Pics/Team/2023/2023_First_3_Models_Signed_0014.jpg
+!Pics/Team/2023/2023_05_May_Business_Development_Taipei_Start.jpg
+!Pics/Team/2023_03_March_Silk_Road_Partner.jpg
+
+# Creator photos used in story timeline
+!Pics/Creators/2025_08_August_Songshan_Shooting_Nina.jpg
+!Pics/Creators/2025_BDSM_Yin_Event_Networking_Shoot.jpg
+!Pics/Creators/2025_Hana_New_Model_Shooting.jpg
+!Pics/Creators/2024_08_August_Yumi_Model_X_Tesla_Shooting.jpg
+!Pics/Creators/2024_04_April_Easter_Special_Taichung.jpg
+!Pics/Creators/2024_04_April_Taichung_Model_Shoot.jpg
+!Pics/Creators/2024_Yumi_Our_Star.jpg
+!Pics/Creators/2023_12_December_Emma_Expansion_Branding.jpg
+!Pics/Creators/2023_06_June_First_Successful_Branding_Yumi.jpg
 
 # Node modules
 node_modules/
