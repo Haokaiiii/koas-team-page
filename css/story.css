@@ -385,8 +385,7 @@ body {
 @media (max-width: 900px) {
   .timeline-item {
     width: calc(100vw - 140px);
-    max-width: 600px;
-    min-width: 280px;
+    max-width: 650px;
   }
 
   .timeline-card {
