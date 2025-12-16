@@ -181,7 +181,9 @@ body {
   backdrop-filter: blur(10px);
   position: relative;
   transition: all 0.3s ease;
-  width: calc(50% - 30px); /* Half width minus margin */
+  width: calc((100vw - 240px) / 2); /* Utilize available space minus timeline area */
+  max-width: 500px; /* Prevent from becoming too wide */
+  min-width: 350px; /* Ensure minimum readable width */
   margin-left: 30px; /* Align with timeline line */
 }
 
@@ -311,6 +313,11 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1200px) {
+  .timeline-item {
+    width: calc((100vw - 200px) / 2);
+    max-width: 450px;
+  }
+
   .timeline-image {
     flex: 0 0 260px;
     min-width: 220px;
@@ -328,7 +335,9 @@ body {
   }
 
   .timeline-item {
-    width: calc(50% - 20px);
+    width: calc((100vw - 160px) / 2);
+    max-width: 400px;
+    min-width: 300px;
     margin-left: 20px;
     padding: 30px;
   }
@@ -374,6 +383,12 @@ body {
 }
 
 @media (max-width: 900px) {
+  .timeline-item {
+    width: calc(100vw - 140px);
+    max-width: 600px;
+    min-width: 280px;
+  }
+
   .timeline-card {
     flex-direction: column;
     gap: 20px;
@@ -437,7 +452,9 @@ body {
   }
 
   .timeline-item {
-    width: 100%; /* Full width on mobile */
+    width: calc(100vw - 30px); /* Full width minus padding */
+    max-width: none; /* Remove max-width on mobile */
+    min-width: auto; /* Remove min-width on mobile */
     margin-left: 0;
     margin-right: 0;
     padding: 25px;
